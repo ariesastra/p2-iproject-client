@@ -5,14 +5,14 @@
 
       <div class="collapse navbar-collapse d-flex justify-content-end">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <router-link
                   class="nav-link"
                   to="/home"
                 >
                   Homepage
                 </router-link>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a
                   class="nav-link"
@@ -50,16 +50,16 @@ export default {
   },
   methods: {
     ...mapActions(['doLogout', 'fetchOrganization', 'fetchPayment']),
-    goToHome () {
-      this.$router.push({ path: '/' })
-    },
+    // goToHome () {
+    //   this.$router.push({ path: '/' })
+    // },
     actionLogout () {
       this.doLogout()
       this.$router.push('/login')
     },
     async getOrganization () {
       await this.fetchOrganization()
-      this.$router.push('/organization')
+      this.$router.push('/')
     },
     async getPayment () {
       await this.fetchPayment()

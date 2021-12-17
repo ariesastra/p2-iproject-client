@@ -80,7 +80,7 @@
               Sign in With Google
             </GoogleLogin>
           <p class="text-center mt-4">
-            Register to see Our awesome movies,
+            Register to see Our awesome 
             <router-link
               to="/register"
             >
@@ -116,7 +116,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['doLogin']),
+    ...mapActions(['doLogin', 'googleAuth']),
     async onSuccess (googleUser) {
       const profile = googleUser.getBasicProfile()
       const email = profile.getEmail()
@@ -142,7 +142,6 @@ export default {
 
       if (this.isLogin) {
         if (this.isFillProfile) {
-          console.log(this.isFillProfile);
           this.$router.push('/')
         }
         else {

@@ -13,7 +13,7 @@
       <div class="card">
         <div class="card-header d-flex justify-content-between">
           <p>Organization List</p>
-          <button class="btn btn-success">Create Oganization</button>
+          <button class="btn btn-success" @click="goToFormOrganization">Create Oganization</button>
         </div>
         <div class="card-body">
           <img src="" alt="">
@@ -42,8 +42,9 @@
                   {{orgs.price}}
                 </td>
                 <td class="d-flex justify-content-center">
-                  <button class="btn btn-primary mx-auto">Edit</button>
-                  <button class="btn btn-outline-danger mx-auto">Delete</button>
+                  <button class="btn btn-outline-primary mx-auto" @click="goToAssign">Assign</button>
+                  <!-- <button class="btn btn-outline-secondary mx-auto">Edit</button> -->
+                  <!-- <button class="btn btn-outline-danger mx-auto">Delete</button> -->
                 </td>
               </tr>
             </tbody>
@@ -63,7 +64,13 @@ export default {
     this.fetchOrganization()
   },
   methods: {
-    ...mapActions(['fetchOrganization'])
+    ...mapActions(['fetchOrganization']),
+    goToFormOrganization () {
+      this.$router.push('/add-organization')
+    },
+    goToAssign() {
+      this.$router.push('/assign-payment')
+    }
   },
   computed: {
     ...mapState(['organizationData'])
